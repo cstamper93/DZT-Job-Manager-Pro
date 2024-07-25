@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class FieldEntry {
 
+    private int jobNumber;
     private String crewName1;
     private String crewName2;
     private String crewName3;
@@ -11,7 +12,17 @@ public class FieldEntry {
     private int hoursWorked;
     private int minutesWorked;
 
+    // add start time and end time
+
     public FieldEntry(){}
+
+    public int getJobNumber() {
+        return jobNumber;
+    }
+
+    public void setJobNumber() {
+        this.jobNumber = jobNumber;  // why is jobNumber highlighted?
+    }
 
     public String getCrewName1() {
         return crewName1;
