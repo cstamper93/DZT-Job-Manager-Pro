@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class JobCard {
 
+    private int id;
     private int jobNumber;
     private String clientName;
     private int phoneNumber;
@@ -16,6 +17,14 @@ public class JobCard {
     private Date completeBy;
 
     public JobCard(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getJobNumber() {
         return jobNumber;

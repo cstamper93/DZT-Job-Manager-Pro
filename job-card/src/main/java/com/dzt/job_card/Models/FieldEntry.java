@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class FieldEntry {
 
+    private int jobId;
     private int jobNumber;
     private String crewName1;
     private String crewName2;
@@ -15,6 +16,14 @@ public class FieldEntry {
     // add start time and end time
 
     public FieldEntry(){}
+
+    public int getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(int jobId) {
+        this.jobId = jobId;
+    }
 
     public int getJobNumber() {
         return jobNumber;
