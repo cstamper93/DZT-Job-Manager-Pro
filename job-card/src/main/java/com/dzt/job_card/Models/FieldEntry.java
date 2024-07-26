@@ -29,8 +29,8 @@ public class FieldEntry {
         return jobNumber;
     }
 
-    public void setJobNumber() {
-        this.jobNumber = jobNumber;  // why is jobNumber highlighted?
+    public void setJobNumber(int jobNumber) {
+        this.jobNumber = jobNumber;
     }
 
     public String getCrewName1() {

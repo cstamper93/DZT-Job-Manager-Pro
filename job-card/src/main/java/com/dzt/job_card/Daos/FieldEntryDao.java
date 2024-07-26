@@ -3,12 +3,13 @@ package com.dzt.job_card.Daos;
 import com.dzt.job_card.Models.FieldEntry;
 
 import java.util.Date;
+import java.util.List;
 
 public interface FieldEntryDao {
 
-    FieldEntry getFieldEntriesByJobId(int jobId);
+    List<FieldEntry> getFieldEntriesByJobId(int jobId);
 
-    FieldEntry createFieldEntry(FieldEntry entry);
+    boolean createFieldEntry(FieldEntry entry); // have to return boolean because pk is a combination of 3 variables
 
     FieldEntry editFieldEntry(FieldEntry entry);
 
