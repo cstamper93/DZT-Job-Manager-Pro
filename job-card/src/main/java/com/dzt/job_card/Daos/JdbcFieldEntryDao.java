@@ -73,5 +73,6 @@ public class JdbcFieldEntryDao implements FieldEntryDao {
         fieldEntry.setEntryDate(rowSet.getDate("entry_date"));
         fieldEntry.setHoursWorked(rowSet.getInt("hours_worked"));
         fieldEntry.setMinutesWorked(rowSet.getInt("minutes_worked"));
+        return fieldEntry;
     }
 }
