@@ -19,7 +19,12 @@ public class JobCardController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("add-card")
     public JobCard addJobCard(@RequestBody JobCard card) {
-        return jobCardDao.createNewJobCard(card);
+        JobCard newCard = jobCardDao.createNewJobCard(card);
+        if(newCard == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to create new card");
+        } else {
+            return newCard;
+        }
     }
 
     @GetMapping("/job-cards/{id}")
@@ -43,7 +48,7 @@ public class JobCardController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("/job-cards/{id}") // throw exception here??
+    @DeleteMapping("/job-cards/{id}") // throw exception here??
     public boolean deleteCard(@PathVariable int id) {
         return jobCardDao.deleteJobCard(id);
     }

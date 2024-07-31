@@ -3,12 +3,14 @@ package com.dzt.job_card.Daos;
 import com.dzt.job_card.Models.FieldEntry;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Component
 public class JdbcFieldEntryDao implements FieldEntryDao {
 
     private final JdbcTemplate template;
@@ -16,6 +18,7 @@ public class JdbcFieldEntryDao implements FieldEntryDao {
     public JdbcFieldEntryDao(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
+
     @Override
     public List<FieldEntry> getFieldEntriesByJobId(int jobId) {
         List<FieldEntry> fieldEntries = new ArrayList<>();
