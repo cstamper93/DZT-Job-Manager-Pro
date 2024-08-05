@@ -3,11 +3,11 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-// import axios from 'axios'
+import axios from 'axios'
 
-// Vue.config.productionTip = false
+//Vue.config.productionTip = false
 
-// axios.defaults.baseUrl = process.env.VUE_APP_REMOTE_API;
+axios.defaults.baseURL = import.meta.env.VUE_APP_REMOTE_API;
 
 const app = createApp(App)
 
