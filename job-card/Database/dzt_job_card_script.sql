@@ -14,7 +14,7 @@ CREATE TABLE job_card(
     job_type VARCHAR(50),
     job_status VARCHAR(50),
     complete_by DATE,
-    CONSTRAINT PK_job_card PRIMARY KEY(job_number)
+    CONSTRAINT PK_job_card PRIMARY KEY(id)
 );
 
 CREATE TABLE field_entry(
@@ -27,8 +27,7 @@ CREATE TABLE field_entry(
     hours_worked INTEGER,
     minutes_worked INTEGER,
     CONSTRAINT PK_field_entry PRIMARY KEY(job_id, entry_date, crew_name_1),
-    CONSTRAINT FK_field_entry_job_card FOREIGN KEY (job_id) REFERENCES job_card(id),
-    CONSTRAINT FK_field_entry_job_card FOREIGN KEY (job_number) REFERENCES job_card(job_number)
+    CONSTRAINT FK_id_field_entry_job_card FOREIGN KEY (job_id) REFERENCES job_card(id)
 );
 
 COMMIT;
