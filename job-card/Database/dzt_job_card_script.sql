@@ -6,8 +6,8 @@ CREATE TABLE job_card(
     id SERIAL,
     job_number INTEGER, --maybe serial?? Probs not but maybe they want to give it the next available job number...
     client_name VARCHAR(100),
-    phone_number INTEGER,
-    alt_phone_number INTEGER,
+    phone_number VARCHAR(20),
+    alt_phone_number VARCHAR(20),
     client_email VARCHAR(150),
     alt_email VARCHAR(150),
     job_address VARCHAR(200),

@@ -84,8 +84,8 @@ public class JdbcJobCardDao implements JobCardDao {
         jobCard.setId(rowSet.getInt("id"));
         jobCard.setJobNumber(rowSet.getInt("job_number"));
         jobCard.setClientName(rowSet.getString("client_name"));
-        jobCard.setPhoneNumber(rowSet.getInt("phone_number"));
-        jobCard.setAltPhoneNumber(rowSet.getInt("alt_phone_number"));
+        jobCard.setPhoneNumber(rowSet.getString("phone_number"));
+        jobCard.setAltPhoneNumber(rowSet.getString("alt_phone_number"));
         jobCard.setClientEmail(rowSet.getString("client_email"));
         jobCard.setAltEmail(rowSet.getString("alt_email"));
         jobCard.setJobAddress(rowSet.getString("job_address"));

@@ -7,8 +7,8 @@ public class JobCard {
     private int id;
     private int jobNumber;
     private String clientName;
-    private int phoneNumber;
-    private int altPhoneNumber;
+    private String phoneNumber; // Change phone number data types?
+    private String altPhoneNumber;
     private String clientEmail;
     private String altEmail;
     private String jobAddress;
@@ -42,19 +42,19 @@ public class JobCard {
         this.clientName = clientName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getAltPhoneNumber() {
+    public String getAltPhoneNumber() {
         return altPhoneNumber;
     }
 
-    public void setAltPhoneNumber(int altPhoneNumber) {
+    public void setAltPhoneNumber(String altPhoneNumber) {
         this.altPhoneNumber = altPhoneNumber;
     }
 
