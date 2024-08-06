@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import JobCardsList from '../components/JobCardsList.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <JobCardsList />
   </main>
 </template>

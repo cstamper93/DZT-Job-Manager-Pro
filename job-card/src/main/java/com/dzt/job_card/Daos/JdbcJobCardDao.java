@@ -48,7 +48,7 @@ public class JdbcJobCardDao implements JobCardDao {
         List<JobCard> jobCardList = new ArrayList<>();
         String sql = "SELECT * FROM job_card;";
         SqlRowSet results = template.queryForRowSet(sql);
-        if(results.next()) {
+        while(results.next()) {
             jobCardList.add(mapRowToJobCard(results));
         }
         return jobCardList;
