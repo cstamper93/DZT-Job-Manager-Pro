@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>Jobs Board</h1>
         <div class="job-card" v-for="jobCard in jobCards" v-bind:key="jobCard.id">
             <p>Job #: {{ jobCard.jobNumber }}</p>
             <p>Job Address: {{ jobCard.jobAddress }}</p>
