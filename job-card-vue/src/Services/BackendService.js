@@ -8,5 +8,9 @@ export default {
 
     getAllJobCards() {
         return http.get('/job-cards');
+    },
+
+    addJobCard(card) {
+        return http.post('/add-card', card);
     }
 }
