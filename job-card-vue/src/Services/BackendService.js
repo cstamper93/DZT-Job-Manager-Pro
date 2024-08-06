@@ -12,5 +12,9 @@ export default {
 
     addJobCard(card) {
         return http.post('/add-card', card);
+    },
+
+    deleteJobCard(id) {
+        return http.delete(`job-cards/${id}`);
     }
 }

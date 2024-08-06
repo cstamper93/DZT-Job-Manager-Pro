@@ -1,8 +1,10 @@
 <template>
   <main>
     <h1 class="home-title">Jobs Board</h1>
+
     <button class="add-button" @click="isVisible = !isVisible" v-if="isVisible">+ Add Card</button>
-    <button class="cancel-button" @click="isVisible = !isVisible" v-if="!isVisible">Cancel</button>
+    <button class="add-button" @click="isVisible = !isVisible" v-if="!isVisible">Cancel</button>
+
     <AddCard v-if="!isVisible"/>
     <JobCardsList />
   </main>
@@ -20,7 +22,7 @@ export default {
   },
   data() {
     return {
-      isVisible: true
+      isVisible: true,
     };
   }
 }
