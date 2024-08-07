@@ -16,5 +16,13 @@ export default {
 
     deleteJobCard(id) {
         return http.delete(`job-cards/${id}`);
+    },
+
+    editJobCard(card) {
+        return http.put('/job-cards', card);
+    },
+
+    getJobCardById(id) {
+        return http.get(`/job-cards/${id}`);
     }
 }
