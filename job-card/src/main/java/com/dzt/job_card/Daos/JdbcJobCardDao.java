@@ -57,12 +57,12 @@ public class JdbcJobCardDao implements JobCardDao {
     @Override
     public JobCard editJobCard(JobCard updatedCard) {
         String sql = "UPDATE job_card SET job_number = ?, client_name = ?, phone_number = ?, alt_phone_number = ?, " +
-                "client_email = ?, alt_email = ? job_address = ?, job_type = ?, job_status = ?, complete_by = ? " +
+                "client_email = ?, alt_email = ?, job_address = ?, job_type = ?, job_status = ?, complete_by = ? " +
                 "WHERE id = ?;";
         template.update(sql, updatedCard.getJobNumber(), updatedCard.getClientName(), updatedCard.getPhoneNumber(),
                 updatedCard.getAltPhoneNumber(), updatedCard.getClientEmail(), updatedCard.getAltEmail(),
                 updatedCard.getJobAddress(), updatedCard.getJobType(), updatedCard.getJobStatus(),
-                updatedCard.getCompleteBy());
+                updatedCard.getCompleteBy(), updatedCard.getId());
 
         return getCardById(updatedCard.getId());
     }
