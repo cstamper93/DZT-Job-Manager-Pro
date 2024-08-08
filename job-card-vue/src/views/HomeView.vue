@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h1 class="home-title">Jobs Board</h1>
+    <h1 class="home-title">Job Board</h1>
 
     <button class="add-button" @click="isVisible = !isVisible" v-if="isVisible">+ Add Card</button>
     <button class="add-button" @click="isVisible = !isVisible" v-if="!isVisible">Cancel</button>

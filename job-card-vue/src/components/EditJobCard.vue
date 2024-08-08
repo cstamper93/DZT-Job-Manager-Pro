@@ -1,6 +1,10 @@
 <template>
   <button class="edit-btn" v-if="showBtn" @click="showBtn=!showBtn">Edit</button>
   <button class="done-btn" v-if="!showBtn" @click="showBtn=!showBtn">Done</button>
+
+  <div class="edit-card-container">
+
+  </div>
 </template>
 
 <script>
@@ -11,6 +15,9 @@ export default {
         return {
             showBtn: true
         }
+    },
+    props: {
+
     },
     methods: {
         editJobCard(jobCard) {
