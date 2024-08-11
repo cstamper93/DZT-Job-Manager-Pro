@@ -134,6 +134,10 @@
         </div> 
 
     </div>
+
+    <footer>
+        <p>Icons by Anggara from <a href="www.flaticon.com">flaticon.com</a></p>
+    </footer>
 </template>
 
 <script>

@@ -5,9 +5,15 @@
     <button class="add-button" @click="isVisible = !isVisible" v-if="isVisible">+ Add Card</button>
     <button class="add-button" @click="isVisible = !isVisible" v-if="!isVisible">Cancel</button>
 
+    <button class="filter-btn">Filter  <img src="../components/icons/filter.png" alt="Filter Icon" /></button>
+
     <AddCard v-if="!isVisible"/>
     <JobCardsList />
   </main>
+
+  <footer>
+        <p>Icons by Freepik from <a href="www.flaticon.com">flaticon.com</a></p>
+    </footer>
 </template>
 
 <script>
@@ -23,12 +29,19 @@ export default {
   data() {
     return {
       isVisible: true,
+      showfilterBtn: true
     };
   }
 }
 </script>
 
 <style scoped>
+
+img {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.2rem;
+}
 
 </style>
 
