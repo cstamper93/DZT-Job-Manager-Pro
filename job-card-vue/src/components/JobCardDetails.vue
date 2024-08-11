@@ -1,5 +1,19 @@
 <template>
-  <h1>Job Card # {{ jobCard.jobNumber }}</h1>
+
+  <div class="job-number-container">
+    <div class="existing-job-number" @mouseenter="jobNumberHover=true" 
+    @mouseleave="jobNumberHover=false" v-if="!editJobNumber">
+        <h1>Job Card # {{ jobCard.jobNumber }}</h1>
+        <img class="headline-icon" v-if="jobNumberHover" src="../components/icons/edit.png" alt="Pencil Icon" @click="editJobNumber=true">
+    </div>
+    <div class="edit-job-number" v-if="editJobNumber">
+        <h1>Job Card #</h1>
+        <input class="input-box" type="Number" placeholder="Job Number" required autofocus v-model="jobCard.jobNumber"/>
+        <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
+        <button @click="editJobNumber=false">Cancel</button>
+    </div>
+  </div>
+
     <div class="card-details-page">
 
         <h3 class="headline">Client Name: </h3>
@@ -48,30 +62,78 @@
             <span v-else>N/A</span>
             <img v-if="emailHover" src="../components/icons/edit.png" alt="Pencil Icon" @click="editEmail=true">
         </div>
+        <div class="editLine" v-if="editEmail">
+            <input class="input-box" type="text" placeholder="Email" required autofocus v-model="jobCard.clientEmail"/>
+            <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
+            <button @click="editEmail=false">Cancel</button>
+        </div>
 
         <h3 class="headline">Alternate Email: </h3>
-        <span v-if="jobCard.altEmail!=null && jobCard.altEmail.length!=0">{{ jobCard.altEmail }}</span>
-        <span v-else>N/A</span>
+        <div class="property-container" @mouseenter="lineHover=true, altEmailHover=true" 
+        @mouseleave="lineHover=false, altEmailHover=false" v-if="!editAltEmail">
+            <span v-if="jobCard.altEmail!=null && jobCard.altEmail.length!=0">{{ jobCard.altEmail }}</span>
+            <span v-else>N/A</span>
+            <img v-if="altEmailHover" src="../components/icons/edit.png" alt="Pencil Icon" @click="editAltEmail=true">
+        </div>   
+        <div class="editLine" v-if="editAltEmail">
+            <input class="input-box" type="text" placeholder="Alternate Email" required autofocus v-model="jobCard.altEmail"/>
+            <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
+            <button @click="editAltEmail=false">Cancel</button>
+        </div> 
 
         <h3 class="headline">Job Address: </h3>
-        <span v-if="jobCard.jobAddress!=null && jobCard.jobAddress!=0">{{ jobCard.jobAddress }}</span>
-        <span v-else>N/A</span>
+        <div class="property-container" @mouseenter="lineHover=true, addressHover=true" 
+        @mouseleave="lineHover=false, addressHover=false" v-if="!editAddress">
+            <span v-if="jobCard.jobAddress!=null && jobCard.jobAddress!=0">{{ jobCard.jobAddress }}</span>
+            <span v-else>N/A</span>
+            <img v-if="addressHover" src="../components/icons/edit.png" alt="Pencil Icon" @click="editAddress=true">
+        </div>
+        <div class="editLine" v-if="editAddress">
+            <input class="input-box" type="text" placeholder="Address" required autofocus v-model="jobCard.jobAddress"/>
+            <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
+            <button @click="editAddress=false">Cancel</button>
+        </div> 
 
         <h3 class="headline">Job Type: </h3>
-        <span v-if="jobCard.jobType!=null && jobCard.jobType.length!=0">{{ jobCard.jobType }}</span>
-        <span v-else>N/A</span>
+        <div class="property-container" @mouseenter="lineHover=true, typeHover=true" 
+        @mouseleave="lineHover=false, typeHover=false" v-if="!editType">
+            <span v-if="jobCard.jobType!=null && jobCard.jobType.length!=0">{{ jobCard.jobType }}</span>
+            <span v-else>N/A</span>
+            <img v-if="typeHover" src="../components/icons/edit.png" alt="Pencil Icon" @click="editType=true">
+        </div>
+        <div class="editLine" v-if="editType">
+            <input class="input-box" type="text" placeholder="Job Type" required autofocus v-model="jobCard.jobType"/>
+            <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
+            <button @click="editType=false">Cancel</button>
+        </div> 
 
         <h3 class="headline">Status: </h3>
-        <span v-if="jobCard.jobStatus!=null && jobCard.jobStatus.length!=0">{{ jobCard.jobStatus }}</span>
-        <span v-else>N/A</span>
+        <div class="property-container" @mouseenter="lineHover=true, statusHover=true" 
+        @mouseleave="lineHover=false, statusHover=false" v-if="!editStatus">
+            <span v-if="jobCard.jobStatus!=null && jobCard.jobStatus.length!=0">{{ jobCard.jobStatus }}</span>
+            <span v-else>N/A</span>
+            <img v-if="statusHover" src="../components/icons/edit.png" alt="Pencil Icon" @click="editStatus=true">
+        </div>
+        <div class="editLine" v-if="editStatus">
+            <input class="input-box" type="text" placeholder="Job Status" required autofocus v-model="jobCard.jobStatus"/>
+            <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
+            <button @click="editStatus=false">Cancel</button>
+        </div> 
 
         <h3 class="headline">Complete By: </h3>
-        <span v-if="jobCard.completeBy!=null">{{ jobCard.completeBy }}</span>
-        <span v-else>N/A</span>
+        <div class="property-container" @mouseenter="lineHover=true, dateHover=true" 
+        @mouseleave="lineHover=false, dateHover=false" v-if="!editDate">
+            <span v-if="jobCard.completeBy!=null">{{ jobCard.completeBy }}</span>
+            <span v-else>N/A</span>
+            <img v-if="dateHover" src="../components/icons/edit.png" alt="Pencil Icon" @click="editDate=true">
+        </div>
+        <div class="editLine" v-if="editDate">
+            <input class="input-box" type="date" placeholder="Complete By Date" required autofocus v-model="jobCard.completeBy"/>
+            <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
+            <button @click="editDate=false">Cancel</button>
+        </div> 
+
     </div>
-    <footer>
-        <p>* Icons created by Anggara at <a href="www.flaticon.com" >www.flaticon.com</a></p>
-    </footer>
 </template>
 
 <script>
@@ -84,10 +146,17 @@ export default {
             jobCard: Object,
 
             lineHover: false,
+
+            jobNumberHover: false,
             nameHover: false,
             phoneHover: false,
             altPhoneHover: false,
             emailHover: false,
+            altEmailHover: false,
+            addressHover: false,
+            typeHover: false,
+            statusHover: false,
+            dateHover: false,
 
             editJobNumber: false,
             editName: false,
@@ -137,6 +206,20 @@ export default {
 </script>
 
 <style scoped>
+
+    .job-number-container {
+        text-align: center;
+    }
+
+    .existing-job-number {
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+    }
+
+    .headline-icon {
+        margin-left: 3rem;
+    }
     .card-details-page {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -172,17 +255,18 @@ export default {
     }
 
     img {
-        width: 1.1rem;
-        height: 1.1rem;
-    }
-
-    img:hover {
         width: 1.25rem;
         height: 1.25rem;
     }
 
+<<<<<<< HEAD
     footer {
         background-color: #f0ffff;
+=======
+    img:hover {
+        width: 1.5rem;
+        height: 1.5rem;
+>>>>>>> origin
     }
 
 </style>
