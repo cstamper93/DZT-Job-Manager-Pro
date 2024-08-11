@@ -7,10 +7,10 @@
         <img class="headline-icon" v-if="jobNumberHover" src="../components/icons/edit.png" alt="Pencil Icon" @click="editJobNumber=true">
     </div>
     <div class="edit-job-number" v-if="editJobNumber">
-        <h1>Job Card #</h1>
+        <h1 class="edit-number-headline">Job Card #</h1>
         <input class="input-box" type="Number" placeholder="Job Number" required autofocus v-model="jobCard.jobNumber"/>
         <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-        <button @click="editJobNumber=false">Cancel</button>
+        <button @click="editJobNumber=false, jobNumberHover=false">Cancel</button>
     </div>
   </div>
 
@@ -26,7 +26,7 @@
         <div class="editLine" v-if="editName">
             <input class="input-box" type="text" placeholder="Name" required autofocus v-model="jobCard.clientName"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editName=false">Cancel</button>
+            <button @click="editName=false, nameHover=false">Cancel</button>
         </div>
 
         <h3 class="headline">Phone Number: </h3>
@@ -39,7 +39,7 @@
         <div class="editLine" v-if="editPhoneNumber">
             <input class="input-box" type="text" placeholder="Phone Number" required autofocus v-model="jobCard.phoneNumber"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editPhoneNumber=false">Cancel</button>
+            <button @click="editPhoneNumber=false, phoneHover=false">Cancel</button>
         </div>
 
         <h3 class="headline">Alternate Phone Number: </h3>
@@ -52,7 +52,7 @@
         <div class="editLine" v-if="editAltPhone">
             <input class="input-box" type="text" placeholder="Alt Phone Number" required autofocus v-model="jobCard.altPhoneNumber"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editAltPhone=false">Cancel</button>
+            <button @click="editAltPhone=false, altPhoneHover=false">Cancel</button>
         </div>
 
         <h3 class="headline">Client Email: </h3>
@@ -65,7 +65,7 @@
         <div class="editLine" v-if="editEmail">
             <input class="input-box" type="text" placeholder="Email" required autofocus v-model="jobCard.clientEmail"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editEmail=false">Cancel</button>
+            <button @click="editEmail=false, emailHover=false">Cancel</button>
         </div>
 
         <h3 class="headline">Alternate Email: </h3>
@@ -78,7 +78,7 @@
         <div class="editLine" v-if="editAltEmail">
             <input class="input-box" type="text" placeholder="Alternate Email" required autofocus v-model="jobCard.altEmail"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editAltEmail=false">Cancel</button>
+            <button @click="editAltEmail=false, altEmailHover=false">Cancel</button>
         </div> 
 
         <h3 class="headline">Job Address: </h3>
@@ -91,7 +91,7 @@
         <div class="editLine" v-if="editAddress">
             <input class="input-box" type="text" placeholder="Address" required autofocus v-model="jobCard.jobAddress"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editAddress=false">Cancel</button>
+            <button @click="editAddress=false, addressHover=false">Cancel</button>
         </div> 
 
         <h3 class="headline">Job Type: </h3>
@@ -104,7 +104,7 @@
         <div class="editLine" v-if="editType">
             <input class="input-box" type="text" placeholder="Job Type" required autofocus v-model="jobCard.jobType"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editType=false">Cancel</button>
+            <button @click="editType=false, typeHover=false">Cancel</button>
         </div> 
 
         <h3 class="headline">Status: </h3>
@@ -117,7 +117,7 @@
         <div class="editLine" v-if="editStatus">
             <input class="input-box" type="text" placeholder="Job Status" required autofocus v-model="jobCard.jobStatus"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editStatus=false">Cancel</button>
+            <button @click="editStatus=false, statusHover=false">Cancel</button>
         </div> 
 
         <h3 class="headline">Complete By: </h3>
@@ -130,7 +130,7 @@
         <div class="editLine" v-if="editDate">
             <input class="input-box" type="date" placeholder="Complete By Date" required autofocus v-model="jobCard.completeBy"/>
             <button @click.prevent="editJobCard(this.jobCard)">Submit</button>
-            <button @click="editDate=false">Cancel</button>
+            <button @click="editDate=false, dateHover=false">Cancel</button>
         </div> 
 
     </div>
@@ -207,14 +207,19 @@ export default {
 
 <style scoped>
 
-    .job-number-container {
-        text-align: center;
-    }
-
     .existing-job-number {
         display: flex;
         align-items: center;
-        /* justify-content: center; */
+        margin-left: 7rem;
+    }
+
+    .edit-job-number {
+        display: flex;
+        align-items: center;
+    }
+
+    .edit-number-headline {
+        margin-right: 1rem;
     }
 
     .headline-icon {
@@ -259,14 +264,9 @@ export default {
         height: 1.25rem;
     }
 
-<<<<<<< HEAD
-    footer {
-        background-color: #f0ffff;
-=======
     img:hover {
         width: 1.5rem;
         height: 1.5rem;
->>>>>>> origin
     }
 
 </style>
