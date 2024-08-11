@@ -69,6 +69,9 @@
         <span v-if="jobCard.completeBy!=null">{{ jobCard.completeBy }}</span>
         <span v-else>N/A</span>
     </div>
+    <footer>
+        <p>* Icons created by Anggara at <a href="www.flaticon.com" >www.flaticon.com</a></p>
+    </footer>
 </template>
 
 <script>
@@ -138,6 +141,7 @@ export default {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
+        margin-bottom: 5rem;
     }
 
     .headline {
@@ -175,6 +179,10 @@ export default {
     img:hover {
         width: 1.25rem;
         height: 1.25rem;
+    }
+
+    footer {
+        background-color: #f0ffff;
     }
 
 </style>
