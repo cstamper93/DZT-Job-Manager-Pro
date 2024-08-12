@@ -37,6 +37,11 @@ public class JobCardController {
         return jobCardDao.getAllJobCards();
     }
 
+    @GetMapping("/job-cards-by-num/{num}")
+    public List<JobCard> filterCardsByNumber(int num) {
+        return jobCardDao.filterByNumber(num);
+    }
+
     @PutMapping("/job-cards") // you can put methods in same endpoint w/diff http requests
     public JobCard editCard(@RequestBody JobCard card) {
         JobCard updatedCard = jobCardDao.editJobCard(card);

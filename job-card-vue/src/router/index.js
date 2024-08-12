@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import JobCardDetailsView from '../views/JobCardDetailsView.vue'
+import JobCardFilterView from '../views/JobCardFilterView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,11 @@ const router = createRouter({
       path: '/job-card-details-view',
       name: 'Job-Card-Details',
       component: JobCardDetailsView
+    },
+    {
+      path: '/filter-view',
+      name: 'Job-Card-Filter',
+      component: JobCardFilterView
     }
   ]
 })

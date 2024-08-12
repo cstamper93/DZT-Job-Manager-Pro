@@ -16,6 +16,10 @@ public interface JobCardDao {
 
     // add ways to filter job card searches (ex: getCardsBy...clientName, city, associated crew members, etc...)
 
+    List<JobCard> filterByNumber(int num);
+
+    List<JobCard> filterByType(boolean type); // change type to t/f or boundary/construction
+
     JobCard editJobCard(JobCard updatedCard);
 
     boolean deleteJobCard(int id);

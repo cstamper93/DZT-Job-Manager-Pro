@@ -1,11 +1,13 @@
 <template>
   <main>
-    <h1 class="home-title">Job Board</h1>
+    <h1 class="home-title">Jobs List</h1>
 
     <button class="add-button" @click="isVisible = !isVisible" v-if="isVisible">+ Add Card</button>
     <button class="add-button" @click="isVisible = !isVisible" v-if="!isVisible">Cancel</button>
 
+    <router-link v-bind:to="{name: 'Job-Card-Filter'}">
     <button class="filter-btn">Filter  <img src="../components/icons/filter.png" alt="Filter Icon" /></button>
+    </router-link>
 
     <AddCard v-if="!isVisible"/>
     <JobCardsList />
