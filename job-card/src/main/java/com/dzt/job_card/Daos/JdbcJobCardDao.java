@@ -55,10 +55,10 @@ public class JdbcJobCardDao implements JobCardDao {
     }
 
     @Override
-    public List<JobCard> filterByNumber(int num) {
+    public List<JobCard> filterByNumber(Integer jobNum) {
         List<JobCard> jobCardList = new ArrayList<>();
         String sql = "SELECT * FROM job_card WHERE job_number = ?;";
-        SqlRowSet results = template.queryForRowSet(sql, num);
+        SqlRowSet results = template.queryForRowSet(sql, jobNum);
         while(results.next()) {
             jobCardList.add(mapRowToJobCard(results));
         }

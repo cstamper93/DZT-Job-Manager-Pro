@@ -37,9 +37,9 @@ public class JobCardController {
         return jobCardDao.getAllJobCards();
     }
 
-    @GetMapping("/job-cards-by-num/{num}")
-    public List<JobCard> filterCardsByNumber(int num) {
-        return jobCardDao.filterByNumber(num);
+    @GetMapping("/job-cards-by-num/{jobNum}")
+    public List<JobCard> filterCardsByNumber(Integer jobNum) {
+        return jobCardDao.filterByNumber(jobNum);
     }
 
     @PutMapping("/job-cards") // you can put methods in same endpoint w/diff http requests
