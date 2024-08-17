@@ -38,7 +38,7 @@ public class JobCardController {
     }
 
     @GetMapping("/job-cards-by-num/{jobNum}")
-    public List<JobCard> filterCardsByNumber(Integer jobNum) {
+    public List<JobCard> filterCardsByNumber(@PathVariable Integer jobNum) {
         return jobCardDao.filterByNumber(jobNum);
     }
 
