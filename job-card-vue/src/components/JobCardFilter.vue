@@ -15,12 +15,14 @@
   <input type="text" placeholder="Filter Search" v-model="userInput">
   <button @click="filterByNumber(userInput)">Search</button>
 
+  <router-link v-bind:to="{name: 'Job-Card-Details'}">
   <div class="filtered-job-cards" v-for="filteredCard in filteredCards" v-bind:key="filteredCard.id">
     <p>Job #: {{ filteredCard.jobNumber }}</p>
     <p>Job Address: {{ filteredCard.jobAddress }}</p>
     <p>Status: {{ filteredCard.jobStatus }}</p>
     <p>Complete By: {{ filteredCard.completeBy }}</p>
   </div>
+  </router-link> 
 
 </template>
 
@@ -60,6 +62,16 @@ export default {
 <style scoped>
 .filtered-job-cards {
    margin-top: 3rem;
+   padding: 5px;
+   margin: 8px;
+   border: 1px solid black;
+   border-radius: 7px;
+   width: 275px;
+}
+
+.filtered-job-cards:hover {
+    border: 2px solid black;
+    background-color: #f0ffff;
 }
 
 </style>
