@@ -42,6 +42,12 @@ public class JobCardController {
         return jobCardDao.filterByNumber(jobNum);
     }
 
+    // Should I pass in another way to hide client names??
+    @GetMapping("/job-cards-by-name/{name}")
+    public List<JobCard> filterCardsByName(@PathVariable String name) {
+        return jobCardDao.filterByName(name);
+    }
+
     @PutMapping("/job-cards") // you can put methods in same endpoint w/diff http requests
     public JobCard editCard(@RequestBody JobCard card) {
         JobCard updatedCard = jobCardDao.editJobCard(card);

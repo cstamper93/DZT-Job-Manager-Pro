@@ -18,6 +18,8 @@ public interface JobCardDao {
 
     List<JobCard> filterByNumber(Integer jobNum);
 
+    List<JobCard> filterByName(String name);
+
     List<JobCard> filterByType(boolean type); // change type to t/f or boundary/construction
 
     JobCard editJobCard(JobCard updatedCard);

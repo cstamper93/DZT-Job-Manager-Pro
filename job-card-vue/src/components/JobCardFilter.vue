@@ -1,19 +1,19 @@
 <template>
   <form class="filter-form">
 
-    <input type="checkbox" id="jobNumber" value="jobNumber" v-model="checkedChoices">
+    <input type="radio" id="jobNumber" value="jobNumber" v-model="checkedChoice">
     <label for="jobNumber"> Job Number</label>
 
-    <input type="checkbox" id="name" value="name" v-model="checkedChoices">
+    <input type="radio" id="name" value="name" v-model="checkedChoice">
     <label for="name"> Client Name</label>
 
-    <input type="checkbox" id="type" value="type" v-model="checkedChoices">
+    <input type="radio" id="type" value="type" v-model="checkedChoice">
     <label for="type"> Job Type</label>
 
   </form>
 
   <input type="text" placeholder="Filter Search" v-model="userInput">
-  <button @click="filterByNumber(userInput)">Search</button>
+  <button @click="filter(userInput)">Search</button>
 
   <router-link v-bind:to="{name: 'Job-Card-Details'}">
   <div class="filtered-job-cards" v-for="filteredCard in filteredCards" v-bind:key="filteredCard.id">
@@ -37,7 +37,7 @@ export default {
     data() {
         return {
             userInput: null,
-            checkedChoices: [],
+            checkedChoice: null,
             filteredCards: []
         }
     },
@@ -51,10 +51,44 @@ export default {
                     alert("A problem occurred. Please try again.");
                 }
             });
+        },
+
+        filterByName(name) {
+            BackendService.filterCardsByName(name).then((response) => {
+                if(response.status == 200) {
+                    this.filteredCards = response.data;
+                } else {
+                    alert("A problem occurred. Please try again.");
+                }
+            });
+        },
+
+        filter(userInput) {
+            if(this.checkedChoice == "jobNumber") {
+                BackendService.filterCardsByNum(userInput).then((response) => {
+                    if(response.status == 200) {
+                        this.filteredCards = response.data;
+                    } else {
+                        alert("A problem occurred. Please try again.");
+                    }
+                });
+            } else if(this.checkedChoice == "name") {
+                BackendService.filterCardsByName(userInput).then((response) => {
+                    if(response.status == 200) {
+                        this.filteredCards = response.data;
+                    } else {
+                        alert("A problem occurred. Please try again.");
+                        console.log(response.status)
+                    }
+                });
+            } else {
+                alert("A problem occurred with your choice. Please try again.")
+            }
         }
     },
+
     computed: {
-        // figure out how to run correct method based on checkboxes
+        
     }
 }
 </script>
