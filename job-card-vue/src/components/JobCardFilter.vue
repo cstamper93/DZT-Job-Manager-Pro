@@ -16,7 +16,8 @@
   <button @click="filter(userInput)">Search</button>
 
   <router-link v-bind:to="{name: 'Job-Card-Details'}">
-  <div class="filtered-job-cards" v-for="filteredCard in filteredCards" v-bind:key="filteredCard.id">
+  <div class="filtered-job-cards" v-for="filteredCard in filteredCards" v-bind:key="filteredCard.id"
+    @click="saveUserChoice(filteredCard.id)">
     <p>Job #: {{ filteredCard.jobNumber }}</p>
     <p>Job Address: {{ filteredCard.jobAddress }}</p>
     <p>Status: {{ filteredCard.jobStatus }}</p>
@@ -83,6 +84,14 @@ export default {
                 });
             } else {
                 alert("A problem occurred with your choice. Please try again.")
+            }
+        },
+
+        saveUserChoice(id) {
+            try {
+                localStorage.setItem('userChoice', id);
+            } catch(error) {
+                console.error('Error saving selection: ', error);
             }
         }
     },

@@ -68,10 +68,15 @@ public class JdbcJobCardDao implements JobCardDao {
     @Override
     public List<JobCard> filterByName(String name) {
         List<JobCard> filteredList = new ArrayList<>();
+        // change name to capitals?
         String sql = "SELECT * FROM job_card WHERE client_name = ?;";
         SqlRowSet results = template.queryForRowSet(sql, name);
         while(results.next()) {
             filteredList.add(mapRowToJobCard(results));
+        }
+
+        for(int i=0; i<filteredList.size(); i++) {
+            System.out.println(filteredList.get(i).getClientName());
         }
 
         return filteredList;
