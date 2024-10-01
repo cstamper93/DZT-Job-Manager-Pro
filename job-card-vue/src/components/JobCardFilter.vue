@@ -81,6 +81,15 @@ export default {
                         alert("A problem occurred. Please try again.");
                         console.log(response.status)
                     }
+                });  
+            } else if(this.checkedChoice == "type") {
+                BackendService.filterCardsByType(userInput).then((response) => {
+                    if(response.status == 200) {
+                        this.filteredCards = response.data;
+                    } else {
+                        alert("A problem occurred. Please try again.");
+                        console.log(response.status)
+                    }
                 });
             } else {
                 alert("A problem occurred with your choice. Please try again.")

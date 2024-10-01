@@ -68,7 +68,6 @@ public class JdbcJobCardDao implements JobCardDao {
     @Override
     public List<JobCard> filterByName(String name) {
         List<JobCard> filteredList = new ArrayList<>();
-        // change name to capitals?
         String sql = "SELECT * FROM job_card WHERE LOWER(client_name) LIKE LOWER(?);";
         String preparedStatement = "%" + name.toLowerCase() + "%";
         SqlRowSet results = template.queryForRowSet(sql, preparedStatement);
@@ -84,8 +83,14 @@ public class JdbcJobCardDao implements JobCardDao {
     }
 
     @Override
-    public List<JobCard> filterByType(boolean type) {
-        return null;
+    public List<JobCard> filterByType(String type) {
+        List<JobCard> filteredCards = new ArrayList<>();
+        String sql = "SELECT * FROM job_card WHERE job_type = ?;";
+        SqlRowSet results = template.queryForRowSet(sql, type);
+        while(results.next()) {
+            filteredCards.add(mapRowToJobCard(results));
+        }
+        return filteredCards;
     }
 
     @Override

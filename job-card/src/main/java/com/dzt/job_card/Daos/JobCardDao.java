@@ -20,7 +20,7 @@ public interface JobCardDao {
 
     List<JobCard> filterByName(String name);
 
-    List<JobCard> filterByType(boolean type); // change type to t/f or boundary/construction
+    List<JobCard> filterByType(String type); // change type to FS, EPS, Division, Recombination, Construction, Other
 
     JobCard editJobCard(JobCard updatedCard);
 

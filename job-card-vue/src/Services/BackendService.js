@@ -18,6 +18,10 @@ export default {
         return http.get(`/job-cards-by-name/${name}`);
     },
 
+    filterCardsByType(type) {
+        return http.get(`/job-cards-by-type/${type}`);
+    },
+
     addJobCard(card) {
         return http.post('/add-card', card);
     },
