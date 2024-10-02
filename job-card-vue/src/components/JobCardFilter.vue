@@ -12,7 +12,16 @@
 
   </form>
 
-  <input type="text" placeholder="Filter Search" v-model="userInput">
+  <input v-if="!isJobType" type="text" placeholder="Filter Search" v-model="userInput">
+  
+  <div class="select-job-type">
+    <input type="radio" id="fs" value="Field Survey" v-model="jobTypeChoice">
+    <label for="fs">Field Survey</label>
+
+    <input type="radio" id="eps" value="Existing Parcel Survey" v-model="jobTypeChoice">
+    <label for="eps">Existing Parcel</label>
+  </div>
+
   <button @click="filter(userInput)">Search</button>
 
   <router-link v-bind:to="{name: 'Job-Card-Details'}">
@@ -39,6 +48,7 @@ export default {
         return {
             userInput: null,
             checkedChoice: null,
+            jobTypeChoice: null,
             filteredCards: []
         }
     },
@@ -106,7 +116,13 @@ export default {
     },
 
     computed: {
-        
+        isJobType() {
+            if(checkedChoice.equals("type")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }
 </script>
