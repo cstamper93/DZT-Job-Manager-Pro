@@ -12,14 +12,25 @@
 
   </form>
 
-  <input v-if="!isJobType" type="text" placeholder="Filter Search" v-model="userInput">
+  <input v-if="!isTypeSelected" type="text" placeholder="Filter Search" v-model="userInput">
   
-  <div class="select-job-type">
-    <input type="radio" id="fs" value="Field Survey" v-model="jobTypeChoice">
+  <div v-else class="select-job-type">
+    <p>Select Type:</p>
+
+    <input type="radio" id="fs" value="Field Survey" v-model="userInput">
     <label for="fs">Field Survey</label>
 
-    <input type="radio" id="eps" value="Existing Parcel Survey" v-model="jobTypeChoice">
+    <input type="radio" id="eps" value="Existing Parcel Survey" v-model="userInput">
     <label for="eps">Existing Parcel</label>
+
+    <input type="radio" id="division" value="Division" v-model="userInput">
+    <label for="division">Division</label>
+
+    <input type="radio" id="recombination" value="Recombination" v-model="userInput">
+    <label for="recombination">Recombination</label>
+
+    <input type="radio" id="construction" value="Construction" v-model="userInput">
+    <label for="construction">Construction</label>
   </div>
 
   <button @click="filter(userInput)">Search</button>
@@ -116,8 +127,8 @@ export default {
     },
 
     computed: {
-        isJobType() {
-            if(checkedChoice.equals("type")) {
+        isTypeSelected() {
+            if(this.checkedChoice == "type") {
                 return true;
             } else {
                 return false;
@@ -140,6 +151,10 @@ export default {
 .filtered-job-cards:hover {
     border: 2px solid black;
     background-color: #f0ffff;
+}
+
+.select-job-type {
+    margin-top: 0.7rem;
 }
 
 </style>

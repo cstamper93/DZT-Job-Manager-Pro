@@ -58,15 +58,56 @@
                     />    
             </div>
             <div class="flex-container">
-                <label for="jobType" class="input-label">Job Type: </label>
+                <p>Job Type: </p>
                 <input
-                    type="text"
-                    id="jobType"
+                    type="radio"
+                    id="fs"
+                    value="Field Survey"
                     class="input-box"
-                    placeholder="job type"
                     v-model="newCard.jobType"
                     required
-                    />    
+                    />
+                <label for="fs">Field Survey</label>
+
+                <input
+                    type="radio"
+                    id="eps"
+                    value="Existing Parcel"
+                    class="input-box"
+                    v-model="newCard.jobType"
+                    required
+                    />
+                <label for="eps">Existing Parcel</label>
+
+                <input
+                    type="radio"
+                    id="division"
+                    value="Division"
+                    class="input-box"
+                    v-model="newCard.jobType"
+                    required
+                    />
+                <label for="division">Division</label>
+
+                <input
+                    type="radio"
+                    id="recombination"
+                    value="Recombination"
+                    class="input-box"
+                    v-model="newCard.jobType"
+                    required
+                    />
+                <label for="recombination">Recombination</label>
+
+                <input
+                    type="radio"
+                    id="construction"
+                    value="Construction"
+                    class="input-box"
+                    v-model="newCard.jobType"
+                    required
+                    />
+                <label for="construction">Construction</label>
             </div>
             <div class="flex-container">
                 <label for="completeBy" class="input-label">Complete By: </label>
