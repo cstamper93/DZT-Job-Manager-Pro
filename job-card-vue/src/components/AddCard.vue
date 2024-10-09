@@ -108,6 +108,17 @@
                     required
                     />
                 <label for="construction">Construction</label>
+
+                <input
+                    type="radio"
+                    id="other"
+                    value="other"
+                    class="input-box"
+                    v-model="newCard.jobType"
+                    required
+                    />
+                <label for="other">Other: </label>   
+                <textarea v-if="isOther" class="other-bar" v-model="newCard.jobType"></textarea>
             </div>
             <div class="flex-container">
                 <label for="completeBy" class="input-label">Complete By: </label>
@@ -144,7 +155,7 @@ export default {
                 jobAddress: null,
                 jobType: null,
                 jobStatus: "Not started",
-                completeBy: null 
+                completeBy: null,
             }
         }
     },
@@ -156,6 +167,15 @@ export default {
                     this.$router.go();
                 }
             })
+        }
+    },
+    computed: {
+        isOther() {
+            if(this.newCard.jobType=="other") {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 

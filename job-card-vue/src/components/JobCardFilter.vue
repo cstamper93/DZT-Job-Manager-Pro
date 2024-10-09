@@ -31,6 +31,10 @@
 
     <input type="radio" id="construction" value="Construction" v-model="userInput">
     <label for="construction">Construction</label>
+
+    <input type="radio" id="other" value="Other" v-model="userInput">
+    <label for="other">Other </label>
+    <textarea v-if="isOther" v-model="userInput"></textarea>
   </div>
 
   <button @click="filter(userInput)">Search</button>
@@ -129,6 +133,13 @@ export default {
     computed: {
         isTypeSelected() {
             if(this.checkedChoice == "type") {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        isOther() {
+            if(this.userInput="Other") {
                 return true;
             } else {
                 return false;
